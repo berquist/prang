@@ -56,3 +56,6 @@ class Schema():
         # print("frozen schema is " + str(self.frozen_schema_el))
         # print("starting to validate", doc_str)
         prang.validation.validate(self.frozen_schema_el, doc_str)
+
+from . import _version
+__version__ = _version.get_versions()['version']
