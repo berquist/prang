@@ -1,6 +1,7 @@
 import prang.simplification
 import xml.dom.minidom
 import pytest
+from pathlib import Path
 
 
 def compare_simplify(
@@ -772,7 +773,7 @@ def test_4_19_define_ref():
 
 def test_odf_1_2():
     schema_str = ''.join(
-        open('/home/tlocke/prang/tests/odf_1_2.rng').readlines())
+        (Path(__file__).parent / "odf_1_2.rng").read_text().splitlines())
     schema_dom = xml.dom.minidom.parseString(schema_str)
     schema_elem = prang.simplification.to_prang_elem(
         None, schema_dom.documentElement)
